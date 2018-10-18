@@ -10,7 +10,7 @@
     'absoluteLinksRemove' => 'N', //Удаление абсолютных ссылок на сайте
   );
 
-  function replaceRegions($content) {
+  function replaceRegions($content, $typeReturn = 'echo') {
 
     $arDataReplaceTags = array(
       'yandexMap' => '#<!--yandex_map-->(.+?)<!--/yandex_map-->#is', //Подстановка карты (с заменой текушей, для этого надо обернуть текущую карту)
@@ -45,7 +45,11 @@
       $content = str_replace($arDataReplaceTags['yandexMapList'], $YandexMapList ,$content);
     }
     
-    echo $content;
+    if ($typeReturn === 'return') {
+      reutrn $content;
+    } else {
+      echo $content;
+    }
   }
 
   function loadFile($path) {
