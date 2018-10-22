@@ -11,7 +11,7 @@
   );
 
   function replaceRegions($content, $typeReturn = 'echo') {
-
+    global $arSettings;
     $arDataReplaceTags = array(
       'yandexMap' => '#<!--yandex_map-->(.+?)<!--/yandex_map-->#is', //Подстановка карты (с заменой текушей, для этого надо обернуть текущую карту)
       'yandexMapList' => '<!--yandex_map_list--><!--/yandex_map_list-->', //Вывод карты со всеми точками
@@ -46,7 +46,7 @@
     }
     
     if ($typeReturn === 'return') {
-      reutrn $content;
+      return $content;
     } else {
       echo $content;
     }
