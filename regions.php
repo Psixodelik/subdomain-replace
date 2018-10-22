@@ -5,7 +5,7 @@
   $arSettings = array(
     'domain' => '', //Основной домен сайта
     'domain-protocol' => '', //Протокол основного домена
-    'subdomain-protokol' => '', //Протокол поддоменов
+    'subdomain-protocol' => '', //Протокол поддоменов
     'regionsFile' => dirname(__FILE__)."/regions.csv", //Путь к файлу с заменами
     'absoluteLinksRemove' => 'N', //Удаление абсолютных ссылок на сайте
   );
@@ -260,7 +260,7 @@
         var myGeocoder = ymaps.geocode('".$region["adress"]."');
         myGeocoder.then(function(res) {
           coord = res.geoObjects.get(0).geometry.getCoordinates();
-          myMap.geoObjects.add(new ymaps.Placemark(coord, {balloonContent: \"<a href='".$arSettings['subdomain-protokol']."://".$domain.".".$arSettings['domain']."/'>".$region["name"]."</a>\"}, {iconColor: '#0095b6'}));
+          myMap.geoObjects.add(new ymaps.Placemark(coord, {balloonContent: \"<a href='".$arSettings['subdomain-protocol']."://".$domain.".".$arSettings['domain']."/'>".$region["name"]."</a>\"}, {iconColor: '#0095b6'}));
         }); 
       ";
     }
@@ -274,7 +274,7 @@
     $content_map .= '<ul class="gorod_list">';
 
     foreach ($arRegions as $domain => $region) {
-      $content_map .= "<li><a href='".$arSettings['subdomain-protokol']."://".$domain.".".$arSettings['domain']."/' target='_blank'>".$region["name"]."</a></li>";
+      $content_map .= "<li><a href='".$arSettings['subdomain-protocol']."://".$domain.".".$arSettings['domain']."/' target='_blank'>".$region["name"]."</a></li>";
     }
 
     $content_map .= '</ul>';
@@ -282,8 +282,8 @@
     return $content_map;
   }
 
-  function absoluteLinksRemove($content, $domain, $protokol) {
-    $content = str_replace($protokol.'://'.$domain, '', $content);
+  function absoluteLinksRemove($content, $domain, $protocol) {
+    $content = str_replace($protocol.'://'.$domain, '', $content);
     return $content;
   }
 
