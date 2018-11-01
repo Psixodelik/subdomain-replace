@@ -31,7 +31,7 @@ ob_start();
 ob_get_clean(); 
 
 include $_SERVER["DOCUMENT_ROOT"]."/regions.php";
-replaceRegions($content);
+replaceRegions($content, $arSettings);
 ```
 
 #### 1C Bitrix
@@ -41,6 +41,6 @@ AddEventHandler("main", "OnEndBufferContent", "replaceSub");
 
 function replaceSub(&$content) {
   include $_SERVER["DOCUMENT_ROOT"]."/regions.php";
-  $content = replaceRegions($content, 'return'); // Для 1C Bitrix нужно возвращать контент, а не выводить, поэтому вторым параметром стоит return
+  $content = replaceRegions($content, $arSettings, 'return'); // Для 1C Bitrix нужно возвращать контент, а не выводить, поэтому вторым параметром стоит return
 }
 ```
