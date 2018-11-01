@@ -10,8 +10,7 @@
     'absoluteLinksRemove' => 'N', //Удаление абсолютных ссылок на сайте
   );
 
-  function replaceRegions($content, $typeReturn = 'echo') {
-    global $arSettings;
+  function replaceRegions($content, $arSettings, $typeReturn = 'echo') {
     $arDataReplaceTags = array(
       'yandexMap' => '#<!--yandex_map-->(.+?)<!--/yandex_map-->#is', //Подстановка карты (с заменой текушей, для этого надо обернуть текущую карту)
       'yandexMapList' => '<!--yandex_map_list--><!--/yandex_map_list-->', //Вывод карты со всеми точками
