@@ -24,8 +24,6 @@ function replaceRegions($content, $arSettings, $explodeTabs = false, $typeReturn
     'showListRegion' => '<!--showListRegion--><!--/showListRegion-->', //Показать переключалку городов
   );
 
-  $data = loadFile($arSettings['regionsFile']);
-
   if($arSettings['absoluteLinksRemove'] == 'Y') {
     $content = absoluteLinksRemove($content, $arSettings['domain'], $arSettings['domain-protocol']);
   }
@@ -34,8 +32,6 @@ function replaceRegions($content, $arSettings, $explodeTabs = false, $typeReturn
     $arRegions = loadRegions($data, $explodeTabs);
     $arAdress = loadAdress($data, $explodeTabs);
     $currentSubdomain = getDomain($arSettings['domain']);
-
-    //print_r($arRegions);
 
     
     if(empty($arRegions[$currentSubdomain]) && $currentSubdomain != $arSettings['domain']) {     
