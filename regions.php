@@ -14,7 +14,7 @@ include dirname(__FILE__).'/components/showListRegion.php';
 include dirname(__FILE__).'/components/translit.php';
 
 function replaceRegions($content, $arSettings, $explodeTabs = false, $typeReturn = 'echo') {
-  
+  $data = loadFile($arSettings['regionsFile']);
   $locationMainDomain = 'Location: '.$arSettings['domain-protocol'].'://'.$arSettings['domain'].'/'; //Location для основного домена
   $arDataReplaceTags = array(
     'yandexMap' => '#<!--yandex_map-->(.+?)<!--/yandex_map-->#is', //Подстановка карты (с заменой текушей, для этого надо обернуть текущую карту)
