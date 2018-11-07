@@ -59,10 +59,11 @@ function showListRegion($arRegions, $arSettings, $mainCity){
         width: 20px;
     }
     .h_goroda {
-      display: inline-block;
-      vertical-align: middle;
-      margin-left: 20px;
-      font-size: 14px;
+      text-align: center;
+      margin-bottom: 5px;
+      font-size: 13px;
+      color: #5C4231;
+      font-weight: bold;
     }
     .h_goroda_a {
       color: rgb(232,151,0);
@@ -113,10 +114,10 @@ function showListRegion($arRegions, $arSettings, $mainCity){
       <div class="head-r">Выберите ваш регион:</div>
       <ul class="regions-list">
   ';
-  $ListRegion .= "<li><a href='".$arSettings['domainProtokol']."://".$arSettings['domain']."/'>Москва</a></li>";
+  $ListRegion .= "<li><a href='".$arSettings['domain-protocol']."://www.".$arSettings['domain']."/'>Москва</a></li>";
 
   foreach ($arRegions as $domain => $region) {
-    $ListRegion .= "<li><a href='".$arSettings['subdomainProtokol']."://".$domain.".".$arSettings['domain']."/'>".$region["name"]."</a></li>";
+    $ListRegion .= "<li><a href='".$arSettings['subdomain-protocol']."://".$domain.".".$arSettings['domain']."/'>".$region["name"]."</a></li>";
   }
 
   $ListRegion .= '
