@@ -114,7 +114,7 @@ function showListRegion($arRegions, $arSettings, $mainCity){
       <div class="head-r">Выберите ваш регион:</div>
       <ul class="regions-list">
   ';
-  $ListRegion .= "<li><a href='".$arSettings['domain-protocol']."://www.".$arSettings['domain']."/'>Москва</a></li>";
+  $ListRegion .= "<li><a href='".$arSettings['domain-protocol']."://".$arSettings['domain']."/'>Москва</a></li>";
 
   foreach ($arRegions as $domain => $region) {
     $ListRegion .= "<li><a href='".$arSettings['subdomain-protocol']."://".$domain.".".$arSettings['domain']."/'>".$region["name"]."</a></li>";
